@@ -11,7 +11,7 @@ export async function updatetransaction(updateData) {
 export async function getTransaction() {
   return await client.db("money").collection("transaction").find({}).toArray();
 }
-export async function getTransactionById() {
+export async function getTransactionById(id) {
   return await client
     .db("money")
     .collection("transaction")

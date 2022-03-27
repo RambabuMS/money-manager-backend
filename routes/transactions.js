@@ -22,11 +22,11 @@ router.get("/", async (req, res) => {
 });
 //READ TRANSACTION BY ID
 router.get("/:id", async (req, res) => {
-  const { id } = request.params;
+  const { id } = req.params;
   const result = await getTransactionById(id);
   result
-    ? response.send(result)
-    : response.status(404).send({ message: "No such player found" });
+    ? res.send(result)
+    : res.status(404).send({ message: "No such player found" });
 });
 
 //UPDATE TRANSACTION
