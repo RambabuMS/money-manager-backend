@@ -30,7 +30,7 @@ router.get("/:id", async (req, res) => {
 });
 
 //UPDATE TRANSACTION
-router.put("/:id", async (req, res) => {
+router.put("/edit/:id", async (req, res) => {
   const updateData = req.body;
   const result = await updatetransaction(updateData);
   res.send(result);
