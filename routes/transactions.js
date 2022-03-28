@@ -21,7 +21,7 @@ router.get("/", async (req, res) => {
   res.send(result);
 });
 //READ TRANSACTION BY ID
-router.get("/edit/:id", async (req, res) => {
+router.get("edit/:id", async (req, res) => {
   const { id } = req.params;
   const result = await getTransactionById(id);
   result
@@ -31,8 +31,9 @@ router.get("/edit/:id", async (req, res) => {
 
 //UPDATE TRANSACTION
 router.put("/:id", async (req, res) => {
+  const { id } = req.params;
   const updateData = req.body;
-  const result = await updatetransaction(updateData);
+  const result = await updatetransaction(updateData, id);
   res.send(result);
 });
 

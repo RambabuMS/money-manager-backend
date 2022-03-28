@@ -1,7 +1,7 @@
 import { ObjectId } from "mongodb";
 import { client } from "./index.js";
 
-export async function updatetransaction(updateData) {
+export async function updatetransaction(updateData, id) {
   return await client
     .db("money")
     .collection("transaction")
