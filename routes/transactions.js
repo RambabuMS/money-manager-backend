@@ -26,10 +26,10 @@ router.get("/edit/:id", async (req, res) => {
   const result = await getTransactionById(id);
   result
     ? res.send(result)
-    : res.status(404).send({ message: "No such player found" });
+    : res.status(404).send({ message: "No such transaction found" });
 });
 
-//UPDATE TRANSACTION
+//UPDATE TRANSACTION BY ID
 router.put("/:id", async (req, res) => {
   const { id } = req.params;
   const updateData = req.body;
@@ -37,7 +37,7 @@ router.put("/:id", async (req, res) => {
   res.send(result);
 });
 
-//DELETE TRANSACTION
+//DELETE TRANSACTION BY ID
 router.delete("/:id", async (req, res) => {
   const { id } = req.params;
   const transaction = await deleteTransactionById(id);

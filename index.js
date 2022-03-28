@@ -3,7 +3,7 @@ import { MongoClient } from "mongodb";
 import dotenv from "dotenv";
 import cors from "cors";
 import { transactionRoute } from "./routes/transactions.js";
-import { authRoute } from "./routes/auth.js";
+// import { authRoute } from "./routes/auth.js";
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ app.use(cors()); // cors - third party middleware
 
 app.use(express.json()); // Inbuild middleware
 
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URL = process.env.MONGO_URL; //DB URL
 
 async function createConnection() {
   const client = new MongoClient(MONGO_URL);
@@ -29,7 +29,7 @@ app.get("/", function (req, res) {
   res.send("Hello hack");
 });
 
-app.use("/auth", authRoute);
+// app.use("/auth", authRoute);
 app.use("/transaction", transactionRoute);
 
 app.listen(process.env.PORT || 5000, () => {
